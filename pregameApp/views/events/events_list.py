@@ -62,10 +62,11 @@ def event_list(request):
 
         form_data = request.POST
         with sqlite3.connect(Connection.db_path) as conn:
-            gmaps = googlemaps.Client(key='Maps')
+            gmaps = googlemaps.Client(key=Maps)
             geocode_result = gmaps.geocode(form_data['address'])
             event_lat = geocode_result.result.geometry.location.lat
             event_long = geocode_result.result.geometry.location.lng
+            current_user = request.user
 
             db_cursor = conn.cursor()
 
@@ -79,6 +80,6 @@ def event_list(request):
             """,
             (form_data['name'], form_data['address'],
                 form_data['description'], form_data['date'],
-                form_data['time'], form_data['img_url'], event_lat, event_long, form_data['user'] ))
+                form_data['time'], form_data['img_url'], event_lat, event_long, current_user.id ))
 
         return redirect(reverse('pregameApp:employees'))
