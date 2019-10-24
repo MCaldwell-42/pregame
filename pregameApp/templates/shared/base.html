@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pregame Time! Where we meeting?!</title>
+
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" media="screen" />
+
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+    <nav id="site-nav">
+        <ol class="navList">
+            <li class="navList__route"><a href="{% url 'pregameApp:events' %}">Events</a></li>
+            <li class="navList__route"><a href="{% url 'pregameApp:logout' %}">Logout</a></li>
+        </ol>
+    </nav>
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+</body>
+
+</html>

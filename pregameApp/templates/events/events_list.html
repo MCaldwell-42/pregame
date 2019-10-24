@@ -1,0 +1,23 @@
+{% extends 'shared/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h1>Events</h1>
+{% comment %} <a href="{% url 'pregameApp:event_form' %}">Don't see your event? Add it!</a> {% endcomment %}
+
+
+<ol>
+{% for event in events %}
+    <li>
+        {% comment %} <a class="event_name" href="{% url 'pregameApp:event' event.id %}"><p>{{ event }}</p></a> {% endcomment %}
+        <h1>{{event.name}}</h1>
+        <h3>Date: {{event.date}} @  {{event.time}}</h3>
+        <h4>{{event.discription}}</h4>
+    </li>
+{% endfor %}
+</ol>
+{% endblock content %}

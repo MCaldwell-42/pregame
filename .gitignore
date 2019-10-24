@@ -33,4 +33,5 @@ migrations
 
 
 #db location
-# hrapp/views/connection.py
+pregameApp/views/connection.py
+pregameApp/views/maps.py
