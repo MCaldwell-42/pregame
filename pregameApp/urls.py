@@ -10,7 +10,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('events/', event_list, name='events'),
-    # path('events/form/', event_form, name='event_form'),
+    path('events/form/', event_form, name='event_form'),
     # path('events/<int:event_id>/', event_details, name='event'),
     # path('pregames/', pregame_list, name='pregame_list'),
     # path('pregame/form', pregame_form, name='pregame_form'),
