@@ -22,27 +22,27 @@
         {% csrf_token %}
         <fieldset>
             <label for="name">Event Name: </label>
-            <input id="name" type="text" name="name" value="{{ event.name }}">
+            <input id="name" type="text" name="name" value="">
         </fieldset>
         <fieldset>
             <label for="address">Full Address (please be specific): </label>
-            <input id="address" type="text" name="address" value="{{ event.address }}">
+            <input id="address" type="text" name="address" value="">
         </fieldset>
         <fieldset>
             <label for="description">What's going on?: </label>
-            <input class="description" type="text" name='description' value="{{ event.description }}">
+            <input class="description" type="text" name='description' value="">
         </fieldset>
         <fieldset>
             <label for="date">Date: </label>
-            <input id="date" type="text" name="date" value="{{ event.date }}">
+            <input id="date" type="text" name="date" value="">
         </fieldset>
         <fieldset>
             <label for="time">Start Time: </label>
-            <input id="time" type="text" name="time" value="{{ event.time }}">
+            <input id="time" type="text" name="time" value="">
         </fieldset>
         <fieldset>
             <label for="img_url">If you have an image, post the url here! </label>
-            <input id="img_url" type="text" name="img_url" value="{{ event.img_url }}">
+            <input id="img_url" type="text" name="img_url" value="">
         </fieldset>
 
         {% comment %} {% if event.id is not None %}
