@@ -15,9 +15,13 @@
 <body>
     <nav id="site-nav">
         <ol class="navList">
+            {% if user.is_authenticated %}
             <li class="navList__route"><a href="{% url 'pregameApp:events' %}">Events</a></li>
             <li class="navList__route"><a href="{% url 'pregameApp:logout' %}">Logout</a></li>
+            {% else %}
             <li class="navList__route"><a href="{% url 'pregameApp:register' %}">Register New User</a></li>
+            <li class="navList__route"><a href="{% url 'pregameApp:login' %}">Login</a></li>
+            {% endif %}
         </ol>
     </nav>
     <main class="main-content">
