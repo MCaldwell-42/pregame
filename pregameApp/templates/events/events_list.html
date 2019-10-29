@@ -13,8 +13,7 @@
 <ol>
 {% for event in events %}
     <li>
-        {% comment %} <a class="event_name" href="{% url 'pregameApp:event' event.id %}"><p>{{ event }}</p></a> {% endcomment %}
-        <h1>{{event.name}}</h1>
+        <a class="event_name" href="{% url 'pregameApp:event' event.id %}"><h1>{{ event.name }}</h1></a>
         <h3>Date: {{event.date}} @  {{event.time}}</h3>
         <h4>{{event.description}}</h4>
     </li>
