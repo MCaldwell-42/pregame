@@ -5,7 +5,7 @@ from pregameApp.models import model_factory
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
-from ..maps import Maps
+
 
 @login_required
 def event_form(request):
