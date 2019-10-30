@@ -1,0 +1,38 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Register</h1>
+
+    <form action="{% url 'pregameApp:register' %}" method="post">
+        <fieldset>
+            <label for="username">Username: </label>
+            <input id="username" type="text" name="username" value="">
+        </fieldset>
+
+        <fieldset>
+            <label for="first_name">First name: </label>
+            <input id="first_name" type="text" name="first_name" value="">
+        </fieldset>
+
+        <fieldset>
+            <label for="last_name">Last name: </label>
+            <input id="last_name" type="text" name="last_name" value="">
+        </fieldset>
+
+
+        <fieldset>
+            <label for="email">Email: </label>
+            <input id="email" type="text" name="email" value="">
+        </fieldset>
+
+        <fieldset>
+            <label for="password">Password: </label>
+            <input id="password" type="password" name="password" value="">
+        </fieldset>
+
+        <input type="submit" value="Register" />
+
+    </form>
+
+{% endblock %}

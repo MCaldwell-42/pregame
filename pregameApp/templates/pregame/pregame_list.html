@@ -1,0 +1,22 @@
+{% extends 'shared/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h1>Pregames</h1>
+<a href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
+
+
+<ol>
+{% for pregame in pregames %}
+    <li>
+        <a class="pregame_name" href="{% url 'pregameApp:pregame_details' pregame.id %}"><h1>{{ pregame.name }}</h1></a>
+        <h3>Date: {{pregame.date}} @  {{pregame.time}}</h3>
+        <h4>{{pregame.description}}</h4>
+    </li>
+{% endfor %}
+</ol>
+{% endblock content %}

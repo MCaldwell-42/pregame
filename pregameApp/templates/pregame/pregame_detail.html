@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+  {% block content %}
+    <section>
+        <div className="pregame_detail_page">
+        <h1>{{ pregame.name }}</h1>
+        <h3>Where?: {{pregame.address}}</h3>
+        <h3>When?: {{pregame.date}} at {{pregame.time}}</h3>
+        <p>{{pregame.description}}</p>
+        <h4>People coming: </h4>
+    </div>
+    </section>
+
+{% endblock %}
