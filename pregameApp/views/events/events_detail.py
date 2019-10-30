@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from pregameApp.models import Event
-# from pregameApp.views import get_pregames
+# from pregameApp.views import pregame_list
 from ..connection import Connection
 
 
@@ -30,16 +30,15 @@ def get_event(event_id):
 
         return db_cursor.fetchone()
 
-@login_required # remove before launch for events only
 def event_details(request, event_id):
     if request.method == 'GET':
         event = get_event(event_id)
-        # all_pregames = get_pregames()
+        # all_pregames = pregame_list(event_id)
 
         template = 'events/event_detail.html'
         context = {
             'event': event,
-            # 'all_pregames': all_pregames
+            # 'all_pregames': all_pregames.count()
         }
 
         return render(request, template, context)

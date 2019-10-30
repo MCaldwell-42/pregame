@@ -6,6 +6,7 @@
         <h3>Where?: {{event.address}}</h3>
         <h3>When?: {{event.date}} at {{event.time}}</h3>
         <p>{{event.description}}</p>
+        <a class="pregame_link" href="{% url 'pregameApp:pregame' event.id %}"><h2>View Pregames for this event</h2></a>
         {% if event_pregames|length is not 0 %}
         <h3>Pregames!</h3>
         {% endif %}
