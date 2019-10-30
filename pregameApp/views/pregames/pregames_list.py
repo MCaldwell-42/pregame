@@ -5,7 +5,7 @@ from pregameApp.models import model_factory
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
-from ..maps import Maps
+from ..maps import Mapkey
 
 def get_pregames():
     with sqlite3.connect(Connection.db_path) as conn:
@@ -47,8 +47,12 @@ def pregame_list(request, event_id):
             p.latitude,
             p.longitude,
             p.created_by_id,
-            p.event_id
+            p.event_id,
+            e.name,
+            e.latitude event_lat,
+            e.longitude event_long
             from pregameApp_pregame p
+            join pregameApp_event e on p.event_id = e.id
             WHERE p.event_id = ?
             """, (event_id,))
 
@@ -57,7 +61,8 @@ def pregame_list(request, event_id):
         template = 'pregame/pregame_list.html'
         context = {
             'pregames': all_event_pregames,
-            'event_id': event_id
+            'event_id': event_id,
+            'Mapkey': Mapkey
         }
 
         return render(request, template, context)
@@ -66,7 +71,7 @@ def pregame_list(request, event_id):
 
         form_data = request.POST
         with sqlite3.connect(Connection.db_path) as conn:
-            gmaps = googlemaps.Client(key=Maps)
+            gmaps = googlemaps.Client(key=Mapkey)
             geocode_result = gmaps.geocode(form_data['address'])[0]
             event_lat = geocode_result['geometry']['location']['lat']
             event_long = geocode_result['geometry']['location']['lng']

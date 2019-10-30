@@ -8,7 +8,7 @@
 {% block content %}
 <h1>Pregames</h1>
 <a href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
-
+ <div id="map" className="pregame_map_page"></div>
 
 <ol>
 {% for pregame in pregames %}
@@ -19,4 +19,20 @@
     </li>
 {% endfor %}
 </ol>
+
+
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: {{pregames.0.event_lat}}, lng: {{pregames.0.event_long}}},
+          zoom: 12
+        });
+      }
+    </script>
+
+
+    <script src='https://maps.googleapis.com/maps/api/js?key={{Mapkey}}&callback=initMap'
+    async defer></script>
+
 {% endblock content %}

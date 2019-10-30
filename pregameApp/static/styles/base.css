@@ -19,3 +19,7 @@ body {
 .navList__route {
     margin: 0 0.5em;
 }
+
+#map {
+    height: 400px;
+  }
