@@ -5,6 +5,7 @@ from pregameApp.models import model_factory
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
+from django.http import JsonResponse
 from ..maps import Mapkey
 
 def get_pregames():
@@ -48,7 +49,7 @@ def pregame_list(request, event_id):
             p.longitude,
             p.created_by_id,
             p.event_id,
-            e.name,
+            e.name event_name,
             e.latitude event_lat,
             e.longitude event_long
             from pregameApp_pregame p

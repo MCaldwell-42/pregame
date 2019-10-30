@@ -28,6 +28,20 @@
           center: {lat: {{pregames.0.event_lat}}, lng: {{pregames.0.event_long}}},
           zoom: 12
         });
+        marker = new google.maps.Marker({
+        position: {lat: {{pregames.0.event_lat}}, lng: {{pregames.0.event_long}}},
+        map: map,
+        title: '{{pregames.0.event_name}}',
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
+      })
+        {% for pregame in pregames %}
+          marker = new google.maps.Marker({
+          position: {lat: {{pregame.latitude}}, lng: {{pregame.longitude}}},
+          map: map,
+          title: '{{pregame.event_name}}',
+          icon: { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+        })
+        {% endfor %}
       }
     </script>
 

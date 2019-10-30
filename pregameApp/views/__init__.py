@@ -8,4 +8,4 @@ from .events.events_detail import event_details
 from .pregames.pregames_list import pregame_list
 from .pregames.pregames_form import pregame_form
 from .pregames.pregames_detail import pregame_details
-# from .pregames.pregames_map import pregames_map
+
