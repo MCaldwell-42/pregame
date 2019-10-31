@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 {% load static %}
   {% block content %}
-    <section>
+    <section id="pregame_container">
         <div className="pregame_detail_page">
         <h1>{{ pregame.name }}</h1>
         <h3>Where?: {{pregame.address}}</h3>
@@ -9,7 +9,7 @@
         <p>{{pregame.description}}</p>
         <h4>People coming: </h4>
         </div>
-        <div className="message_board">
+        <div class="message_board">
         <h3><u>Comments Section</u></h3>
         <form action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="post">
         {% csrf_token %}
@@ -20,18 +20,23 @@
         {% for note in notes%}
         <form action="{% url 'pregameApp:delete_pregame_note' pregame_id  note.id %}" method="post">
         {% csrf_token %}
-        <div className="notecard">
+        <div class="notecard">
         <h4>{{note.username}}:</h4>
-        <div className="note_content">{{note.note}}</div>
+        <div id="note-{{note.id}}" class="note_content">{{note.note}}</div>
         {% if note.user_id is user_id %}
-        {% comment %} <input type="submit" value="Edit" /> {% endcomment %}
+        {% comment %} <input type="hidden" name="actual_method" value="Edit" />
+        <button type="hidden">Save</button> {% endcomment %}
         <input type="hidden" name="actual_method" value="DELETE">
         <button>Delete</button>
         {% endif %}
         </div>
         </form>
+        <button id="editBtn-{{note.id}}">Edit</button>
+        <button id="saveBtn-{{note.id}}" class='hide'>Save</button>
         {% endfor %}
         </div>
     </section>
+
+<script src="{% static 'scripts/edit_note.js' %}"></script>
 
 {% endblock %}

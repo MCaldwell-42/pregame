@@ -23,3 +23,12 @@ body {
 #map {
     height: 400px;
   }
+
+.hide {
+    display: none;
+  }
+
+.editable {
+    background-color: whitesmoke;
+    border: black solid 1px;
+  }
