@@ -16,6 +16,8 @@ urlpatterns = [
     path('pregames/<int:event_id>', pregame_list, name='pregame'),
     path('pregames/form/<int:event_id>', pregame_form, name='pregame_form'),
     path('pregames/details/<int:pregame_id>', pregame_details, name='pregame_details'),
+    path('comment/<int:pregame_id>', post_pregame_notes, name='post_pregame_notes'),
+    path('delete/<int:pregame_id>/<int:note_id>', delete_pregame_note, name='delete_pregame_note'),
     # path('pregames/', pregame_list, name='pregame_list'),
 
 ]

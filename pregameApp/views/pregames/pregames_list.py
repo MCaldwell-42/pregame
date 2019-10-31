@@ -5,7 +5,6 @@ from pregameApp.models import model_factory
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
-from django.http import JsonResponse
 from ..maps import Mapkey
 
 def get_pregames():

@@ -1,4 +1,5 @@
 {% extends 'shared/base.html' %}
+{% load static %}
   {% block content %}
     <section>
         <div className="pregame_detail_page">
@@ -7,7 +8,30 @@
         <h3>When?: {{pregame.date}} at {{pregame.time}}</h3>
         <p>{{pregame.description}}</p>
         <h4>People coming: </h4>
-    </div>
+        </div>
+        <div className="message_board">
+        <h3><u>Comments Section</u></h3>
+        <form action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="post">
+        {% csrf_token %}
+        <textarea name="note" id="note" style="font-family:sans-serif;font-size:1.2em;" placeholer="anything here?">
+        </textarea>
+        <input type="submit" value="Create" />
+        </form>
+        {% for note in notes%}
+        <form action="{% url 'pregameApp:delete_pregame_note' pregame_id  note.id %}" method="post">
+        {% csrf_token %}
+        <div className="notecard">
+        <h4>{{note.username}}:</h4>
+        <div className="note_content">{{note.note}}</div>
+        {% if note.user_id is user_id %}
+        {% comment %} <input type="submit" value="Edit" /> {% endcomment %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+        {% endif %}
+        </div>
+        </form>
+        {% endfor %}
+        </div>
     </section>
 
 {% endblock %}
