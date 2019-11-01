@@ -2,7 +2,7 @@
 {% load static %}
   {% block content %}
     <section id="pregame_container">
-        <div className="pregame_detail_page">
+        <div class="pregame_detail_page">
         <h1>{{ pregame.name }}</h1>
         <h3>Where?: {{pregame.address}}</h3>
         <h3>When?: {{pregame.date}} at {{pregame.time}}</h3>
@@ -11,7 +11,7 @@
         </div>
         <div class="message_board">
         <h3><u>Comments Section</u></h3>
-        <form action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="post">
+        <form action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="POST">
         {% csrf_token %}
         <textarea name="note" id="note" style="font-family:sans-serif;font-size:1.2em;" placeholer="anything here?">
         </textarea>
@@ -22,17 +22,16 @@
         {% csrf_token %}
         <div class="notecard">
         <h4>{{note.username}}:</h4>
-        <div id="note-{{note.id}}" class="note_content">{{note.note}}</div>
+        <div id="note-{{note.id}}" class="comment" name="note_content">{{note.note}}</div>
+        <input id="input-{{note.id}}" class="hide" name="note_content" value={{note.note}}>
         {% if note.user_id is user_id %}
-        {% comment %} <input type="hidden" name="actual_method" value="Edit" />
-        <button type="hidden">Save</button> {% endcomment %}
-        <input type="hidden" name="actual_method" value="DELETE">
+        <button id="editBtn-{{note.id}}">Edit</button>
+        <button id="saveBtn-{{note.id}}" class='hide'>Save</button>
+        <input id="deleteInput-{{note.id}}" type="hidden" name="actual_method" value="DELETE">
         <button>Delete</button>
         {% endif %}
         </div>
         </form>
-        <button id="editBtn-{{note.id}}">Edit</button>
-        <button id="saveBtn-{{note.id}}" class='hide'>Save</button>
         {% endfor %}
         </div>
     </section>

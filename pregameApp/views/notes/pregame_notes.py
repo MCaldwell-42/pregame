@@ -44,3 +44,17 @@ def delete_pregame_note(request, note_id, pregame_id):
                     """, (note_id,))
 
                 return redirect(reverse('pregameApp:pregame_details', args=(pregame_id,)))
+            elif (
+                "actual_method" in form_data
+                and form_data["actual_method"] == "EDIT"
+            ):
+                with sqlite3.connect(Connection.db_path) as conn:
+                    db_cursor = conn.cursor()
+
+                    db_cursor.execute("""
+                    UPDATE pregameApp_pregamenote
+                    SET note =?
+                    WHERE id = ?
+                    """, (form_data['note_content'], note_id,))
+
+                return redirect(reverse('pregameApp:pregame_details', args=(pregame_id,)))
