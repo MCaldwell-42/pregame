@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<h1>Pregames</h1>
+<h1>Pregames for {{pregames.0.event_name}}</h1>
 <a href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
- <div id="map" className="pregame_map_page"></div>
+ <div id="map" class="pregame_map_page"></div>
 
 <ol>
 {% for pregame in pregames %}
@@ -17,6 +17,7 @@
         <h3>Date: {{pregame.date}} @  {{pregame.time}}</h3>
         <h4>{{pregame.description}}</h4>
     </li>
+    <h4>Coming: {{pregame.total_RSVP}}</h3>
 {% endfor %}
 </ol>
 

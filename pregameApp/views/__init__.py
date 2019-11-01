@@ -8,4 +8,7 @@ from .events.events_detail import event_details
 from .pregames.pregames_list import pregame_list
 from .pregames.pregames_form import pregame_form
 from .pregames.pregames_detail import pregame_details
+from .pregames.pregames_rsvp import add_rsvp
+from .notes.pregame_notes import post_pregame_notes
+from .notes.pregame_notes import delete_pregame_note
 
