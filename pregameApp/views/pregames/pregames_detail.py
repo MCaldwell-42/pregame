@@ -25,7 +25,7 @@ def get_pregame_notes(pregame_id):
 
 def get_pregame(pregame_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = sqlite3.Row
+        conn.row_factory = model_factory(Pregame)
         db_cursor = conn.cursor()
 
         db_cursor.execute("""

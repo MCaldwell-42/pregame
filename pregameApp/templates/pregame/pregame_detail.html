@@ -7,7 +7,12 @@
         <h3>Where?: {{pregame.address}}</h3>
         <h3>When?: {{pregame.date}} at {{pregame.time}}</h3>
         <p>{{pregame.description}}</p>
-        <h4>People coming: </h4>
+        <h4>People coming: {{pregame.total_RSVP}}</h4>
+        <form action="{% url 'pregameApp:pregame_rsvp' pregame_id %}" method="POST">
+        {% csrf_token %}
+        <input id="RSVP-{{pregame.id}}" type="hidden" name="actual_method" value="POST">
+        <Button>RSVP!</Button>
+        </form>
         </div>
         <div class="message_board">
         <h3><u>Comments Section</u></h3>
