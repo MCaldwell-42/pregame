@@ -36,3 +36,11 @@ body {
 input {
     width: 250px;
 }
+
+body {
+    background: url("http://chicagobarparties.com/wp-content/uploads/2017/02/AdobeStock_126366684.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+    background-size: 100%;
+  }
