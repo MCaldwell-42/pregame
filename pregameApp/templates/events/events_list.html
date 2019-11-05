@@ -7,6 +7,10 @@
 
 {% block content %}
 <h1>Events</h1>
+<form action="{% url 'pregameApp:city_events' %}" method="get">
+<input type="text" name="search" placeholder="Search for your city here..">
+<button>Search</button>
+</form
 <a href="{% url 'pregameApp:event_form' %}">Don't see your event? Add it!</a>
 
 
