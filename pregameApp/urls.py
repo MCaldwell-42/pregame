@@ -19,5 +19,6 @@ urlpatterns = [
     path('comment/<int:pregame_id>', post_pregame_notes, name='post_pregame_notes'),
     path('delete/<int:pregame_id>/<int:note_id>', delete_pregame_note, name='delete_pregame_note'),
     path('pregames/rsvp/<int:pregame_id>', add_rsvp, name='pregame_rsvp'),
+    path('events_by_city/', city_event_list, name='city_events'),
 
 ]

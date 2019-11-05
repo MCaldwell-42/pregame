@@ -2,4 +2,9 @@
 
 {% block content %}
 <h1>Welcome to Pregame!</h1>
+
+<form action="{% url 'pregameApp:city_events' %}" method="get">
+<input type="text" name="search" placeholder="Search for your city here..">
+<button>Search</button>
+</form
 {% endblock content %}

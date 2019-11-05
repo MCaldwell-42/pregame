@@ -83,3 +83,37 @@ def event_list(request):
                 form_data['time'], form_data['img_url'], event_lat, event_long, current_user.id ))
 
         return redirect(reverse('pregameApp:events'))
+
+
+@login_required
+def city_event_list(request):
+    if request.method == 'GET':
+        with sqlite3.connect(Connection.db_path) as conn:
+            city = request.GET['search']
+            conn.row_factory = model_factory(Event)
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            select
+            e.id,
+            e.name,
+            e.address,
+            e.description,
+            e.date,
+            e.time,
+            e.img_url,
+            e.latitude,
+            e.longitude,
+            e.created_by_id
+            from pregameApp_event e
+            where e.address like ?
+            """, (f'%{city}%',))
+
+            all_events = db_cursor.fetchall()
+
+        template = 'events/events_list.html'
+        context = {
+            'events': all_events
+        }
+
+        return render(request, template, context)

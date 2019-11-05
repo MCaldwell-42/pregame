@@ -7,7 +7,8 @@
     <title>Pregame Time! Where we meeting?!</title>
 
     <link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" media="screen" />
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     {% block css %}
     {% endblock %}
 </head>
@@ -15,6 +16,7 @@
 <body>
     <nav id="site-nav">
         <ol class="navList">
+            <li class="navList__route"><a href="{% url 'pregameApp:home' %}">Home</a></li>
             {% if user.is_authenticated %}
             <li class="navList__route"><a href="{% url 'pregameApp:events' %}">Events</a></li>
             <li class="navList__route"><a href="{% url 'pregameApp:logout' %}">Logout</a></li>
