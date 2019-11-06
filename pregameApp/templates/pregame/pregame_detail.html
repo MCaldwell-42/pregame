@@ -11,16 +11,18 @@
         <form action="{% url 'pregameApp:pregame_rsvp' pregame_id %}" method="POST">
         {% csrf_token %}
         <input id="RSVP-{{pregame.id}}" type="hidden" name="actual_method" value="POST">
-        <Button type="button" class="btn btn-primary" id="rsvp_button">RSVP!</Button>
+        <Button class="btn btn-primary" id="rsvp_button">RSVP!</Button>
         </form>
         </div>
         <div class="message_board">
-        <h3><u>Comments Section</u></h3>
-        <form action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="POST">
+        <h3 class="board_head"><u>Comments Section</u></h3>
+        <form id="comment-form" action="{% url 'pregameApp:post_pregame_notes' pregame_id %}" method="POST">
         {% csrf_token %}
-        <textarea name="note" id="note" rows="7" placeholer="anything here?">
+        {% comment %} <div id="comment_field"> {% endcomment %}
+        <textarea name="note" rows="7" placeholer="anything here?">
         </textarea></br>
-        <input class="btn btn-success" type="submit" value="Comment!" />
+        <input id="comment_btn" class="btn btn-success" type="submit" value="Comment!" />
+        {% comment %} </div> {% endcomment %}
         </form>
         {% for note in notes%}
         <form action="{% url 'pregameApp:delete_pregame_note' pregame_id  note.id %}" method="post">
@@ -33,7 +35,7 @@
         <button id="editBtn-{{note.id}}" class="btn btn-warning" >Edit</button>
         <button id="saveBtn-{{note.id}}" class="hide btn btn-warning">Save</button>
         <input id="deleteInput-{{note.id}}" type="hidden" name="actual_method" value="DELETE">
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger">Delete</button>
         {% endif %}
         </div>
         </form>

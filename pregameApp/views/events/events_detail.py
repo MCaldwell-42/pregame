@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from pregameApp.models import Event
-# from pregameApp.views import pregame_list
+from ..maps import Mapkey
 from ..connection import Connection
 
 
@@ -33,30 +33,11 @@ def get_event(event_id):
 def event_details(request, event_id):
     if request.method == 'GET':
         event = get_event(event_id)
-        # all_pregames = pregame_list(event_id)
 
         template = 'events/event_detail.html'
         context = {
             'event': event,
-            # 'all_pregames': all_pregames.count()
+            'Mapkey': Mapkey
         }
 
         return render(request, template, context)
-
-    # delete if needed later
-    # if request.method == 'POST':
-    #     form_data = request.POST
-
-    #     if (
-    #         "actual_method" in form_data
-    #         and form_data["actual_method"] == "DELETE"
-    #     ):
-    #         with sqlite3.connect(Connection.db_path) as conn:
-    #             db_cursor = conn.cursor()
-
-    #             db_cursor.execute("""
-    #             DELETE FROM pregameApp_event
-    #             WHERE id = ?
-    #             """, (event_id,))
-
-    #         return redirect(reverse('pregameApp:event'))
