@@ -12,6 +12,7 @@
 </head>
 
 <body>
+ <div class="add_form">
     <h1>New Event</h1>
 
     {% comment %} {% if event.id is not None %}
@@ -26,7 +27,7 @@
         </fieldset>
         <fieldset>
             <label for="address">Full Address (please be specific): </label>
-            <input id="address" type="text" name="address" value="">
+            <input id="address" type="text" name="address" placeholder="1700 Church St, Nashville, TN 37203" value="">
         </fieldset>
         <fieldset>
             <label for="description">What's going on?: </label>
@@ -53,6 +54,7 @@
         {% comment %} {% endif %} {% endcomment %}
 
     </form>
+    </div>
 </body>
 
 </html>

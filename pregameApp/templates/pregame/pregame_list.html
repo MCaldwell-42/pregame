@@ -6,22 +6,22 @@
 {% endblock %}
 
 {% block content %}
-
+<div id="pregame_list">
 {% if pregames %}
+<div id="pregame_list_head">
 <h1>Pregames for {{pregames.0.event_name}}</h1>
-<a href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
- 
+<a id="add_link" href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
+</div>
  <div id="map" class="pregame_map_page"></div>
-<ol>
 {% for pregame in pregames %}
-    <li>
+    <div class="pregame_list_card">
         <a class="pregame_name" href="{% url 'pregameApp:pregame_details' pregame.id %}"><h1>{{ pregame.name }}</h1></a>
         <h3>Date: {{pregame.date}} @  {{pregame.time}}</h3>
         <h4>{{pregame.description}}</h4>
-    </li>
-    <h4>Coming: {{pregame.total_RSVP}}</h3>
+        <h4>Coming: {{pregame.total_RSVP}}</h4>
+    </div>
 {% endfor %}
-</ol>
+
 
 
     <script>
@@ -49,13 +49,15 @@
     </script>
 
     {% else %}
-
+    <div id="pregame_list_head">
     <h1>Pregames for {{pregames.0.event_name}}</h1>
-    <a href="{% url 'pregameApp:pregame_form' event_id %}">Oh No! Seems no one is pregaming this event yet. Start one!</a>
-
+    <a id="add_link" href="{% url 'pregameApp:pregame_form' event_id %}">Oh No! Seems no one is pregaming this event yet. Start one!</a>
+    </div>
     {% endif %}
+    
 
     <script src='https://maps.googleapis.com/maps/api/js?key={{Mapkey}}&callback=initMap'
     async defer></script>
+    </div>
 
 {% endblock content %}

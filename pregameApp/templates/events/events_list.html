@@ -6,22 +6,25 @@
 {% endblock %}
 
 {% block content %}
+<div id="event_header">
 <h1>Events</h1>
 <form action="{% url 'pregameApp:city_events' %}" method="get">
-<input type="text" name="search" placeholder="Search for your city here..">
-<button>Search</button>
-</form
+<input id="event-search" type="text" name="search" placeholder="Search for your city here..">
+<button class="btn btn-primary">Search</button>
+</form>
+
 <a href="{% url 'pregameApp:event_form' %}">Don't see your event? Add it!</a>
+</div>
+</br>
 
 
-<ol>
+
 {% for event in events %}
-    <li>
+    <div class="event_cards">
         <a class="event_name" href="{% url 'pregameApp:event' event.id %}"><h1>{{ event.name }}</h1></a>
         <h3>{{event.address}}</h3>
         <h3>Date: {{event.date}} @  {{event.time}}</h3>
         <h4>{{event.description}}</h4>
-    </li>
+    </div>
 {% endfor %}
-</ol>
 {% endblock content %}
