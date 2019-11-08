@@ -26,7 +26,7 @@ def get_events():
         from pregameApp_event e
         """)
         return db_cursor.fetchall()
-
+# gets all of the events and displays them on the given template
 @login_required
 def event_list(request):
     if request.method == 'GET':
@@ -57,7 +57,8 @@ def event_list(request):
         }
 
         return render(request, template, context)
-
+# When posting a new event, the address in your data form is used to query googlemaps api
+# to get the coordinates that are put into the object upon creation.  
     elif request.method == 'POST':
 
         form_data = request.POST
@@ -84,7 +85,8 @@ def event_list(request):
 
         return redirect(reverse('pregameApp:events'))
 
-
+# This is how my search bar works to filter events by the city that one searches. 
+# It grabs the city that you types and uses it to query the database by event addresses. 
 @login_required
 def city_event_list(request):
     if request.method == 'GET':

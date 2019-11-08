@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from pregameApp.models import Pregame, PregameNote, model_factory
 from ..connection import Connection
 
-
+# gets the pregame notes that are displayed as comments in the pregame details page
 def get_pregame_notes(pregame_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(PregameNote)
@@ -22,7 +22,7 @@ def get_pregame_notes(pregame_id):
         where n.pregame_id = ?
         """, (pregame_id,))
         return db_cursor.fetchall()
-
+# gets pregame object for details page
 def get_pregame(pregame_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(Pregame)
@@ -46,7 +46,7 @@ def get_pregame(pregame_id):
         """, (pregame_id,))
 
         return db_cursor.fetchone()
-
+#grabs the pregame details and the notes/comments for said pregame and then displays them on the given template
 @login_required
 def pregame_details(request, pregame_id):
     if request.method == 'GET':
@@ -63,21 +63,3 @@ def pregame_details(request, pregame_id):
         }
 
         return render(request, template, context)
-
-    # delete if needed later
-    # if request.method == 'POST':
-    #     form_data = request.POST
-
-    #     if (
-    #         "actual_method" in form_data
-    #         and form_data["actual_method"] == "DELETE"
-    #     ):
-    #         with sqlite3.connect(Connection.db_path) as conn:
-    #             db_cursor = conn.cursor()
-
-    #             db_cursor.execute("""
-    #             DELETE FROM pregameApp_pregame
-    #             WHERE id = ?
-    #             """, (event_id,))
-
-    #         return redirect(reverse('pregameApp:pregame'))

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
 
-
+# gets form for creating a new pregame
 @login_required
 def pregame_form(request, event_id):
     if request.method == 'GET':
