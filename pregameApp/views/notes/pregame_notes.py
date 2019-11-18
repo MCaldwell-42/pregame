@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from pregameApp.models import Pregame, PregameNote, model_factory
 from ..connection import Connection
-
+# Creates a new comment object for display on the pregame details page
 @login_required
 def post_pregame_notes(request, pregame_id):
     if request.method == 'POST':
@@ -26,7 +26,7 @@ def post_pregame_notes(request, pregame_id):
 
         return redirect(reverse('pregameApp:pregame_details', args=(pregame_id,)))
 
-# @login_required
+# deletes and edits pregame notes based on the button hit with some javascript magic.
 def delete_pregame_note(request, note_id, pregame_id):
     if request.method == 'POST':
             form_data = request.POST

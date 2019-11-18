@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 import googlemaps
 
-
+# gets the form to add a new event
 @login_required
 def event_form(request):
     if request.method == 'GET':

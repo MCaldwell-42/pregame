@@ -27,7 +27,7 @@ def get_pregames():
         from pregameApp_pregame p
         """)
         return db_cursor.fetchall()
-
+# gets all of the pregames for the given event and displays them on the given template
 @login_required
 def pregame_list(request, event_id):
     if request.method == 'GET':
@@ -66,7 +66,8 @@ def pregame_list(request, event_id):
         }
 
         return render(request, template, context)
-
+# When posting a new pregame, the address in your data form is used to query googlemaps api
+# to get the coordinates that are put into the object upon creation.  
     elif request.method == 'POST':
 
         form_data = request.POST
