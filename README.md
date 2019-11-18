@@ -7,18 +7,45 @@ Users are able to post details to where they will be hanging out before the even
 ## Screenshots
 ![image of pregame website](https://raw.githubusercontent.com/MCaldwell-42/pregame/master/pregame_screen.png)
 
-## Installation Instructions
-- Clone down this repo
-- At the root of the project, run `pip install`
-- Create a database for 
-  - Add a web app to the project and enable Google authentication
-  - Create a real-time database and seed it with the data from the database directory
-- Create a file named `/helpers/data/apiKeys.json` and add your Firebase keys using the `apiKeys.example.json` as a template
+### Installing
 
-## How to Run
-- In your terminal, type `npm start`
+1. Clone down this repository and cd into it.
+2. Once inside this repository, cd into `pregameproject`
+1. Create your virtual environment
+```
+python -m venv pregameenv
+```
+* Start virtual environment on Mac
+```
+source ./pregameenv/bin/activate
+```
+* Start virtual environment on Windows
+```
+source ./pregameenv/Scripts/activate
+```
+5. Run `cd ..` You should be in a directory containing `requirements.txt`
+6. Install the app's dependencies:
+```
+pip install -r requirements.txt
+```
+7. Run makemigrations
+`python manage.py makemigrations pregameApp`
 
-***Note**: if you want to make a production build of this project, type `npm run build`.  This will create a folder called build with all the minified code you need.*
+8. Run migrate
+`python manage.py migrate`
+>This will create all the migrations needed for Django Framework to post items to the database based on the models in the Models/ directory
+9. You'll need to creat an account with google maps API and obtain an api key<br>
 
-## How to deploy
-- In your terminal, type `npm run deploy`
+ Once you have an api key, create a file called 'maps.py' in the views directory and put your key inside <br>
+ ```
+ Mapkey="your API_KEY here"
+ ```
+## Run Server
+make sure you're inside of the 'pregame' directory
+
+`python manage.py runserver `
+Ctrl+C to quit
+
+10. Go to http://127.0.0.1:8000/ and create an account <br>
+
+11. begin hosting and finding pregames! 
