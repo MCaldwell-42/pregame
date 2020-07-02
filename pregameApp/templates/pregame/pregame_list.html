@@ -9,7 +9,7 @@
 <div id="pregame_list">
 {% if pregames %}
 <div id="pregame_list_head">
-<h1>Pregames for {{pregames.0.event_name}}</h1>
+<h1><u>Pregames for {{pregames.0.event_name}}</u></h1>
 <a id="add_link" href="{% url 'pregameApp:pregame_form' event_id %}">No pregames or wanting to have your own? Add it!</a>
 </div>
  <div id="map" class="pregame_map_page"></div>
