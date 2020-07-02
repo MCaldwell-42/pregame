@@ -25,7 +25,7 @@ SECRET_KEY = 'm=enh%g#vz7+qqz5#0m&4m7y16#q+6u@kh9w-3inogl4#7s(fv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pregameproject.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
