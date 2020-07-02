@@ -9,6 +9,10 @@
     padding: 1em;
 }
 
+.navLinks {
+    color: lightseagreen;
+}
+
 .navList__route {
     margin: 0 0.5em;
 }
@@ -29,7 +33,7 @@ input {
 }
 
 body {
-    background: url("http://chicagobarparties.com/wp-content/uploads/2017/02/AdobeStock_126366684.jpeg")no-repeat center center fixed;
+    background: url('pregameBackground.jpeg')no-repeat center center fixed;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -57,6 +61,7 @@ body {
 #rsvp_button {
     width: 200px;
     height: 50px;
+    margin-bottom: 10px;
 }
 
 textarea {
@@ -66,23 +71,25 @@ textarea {
 .notecard {
     background-color: lightblue;
     width: 400px;
-    border: black solid 1px;
+    border: black solid 5px;
     padding: 2px;
     margin: auto;
+    margin-top: 10px;
 }
 .event_cards {
     background-color: lightblue;
     width: 50%;
-    border: black solid 1px;
+    border: black solid 5px;
     padding: 20px;
-    margin: 2px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 #event_header {
     margin: auto;
     background-color: lightblue;
     width: 400px;
-    border: black solid 1px;
+    border: black solid 5px;
     padding: 10px;
     
 }
@@ -118,6 +125,7 @@ textarea {
 
 #detail_map {
     flex: 2;
+    border: black solid 3px;
   }
 
 .pregame_list_card, #pregame_list_head {
@@ -127,10 +135,13 @@ textarea {
     flex: 1;
     padding: 0 5px;
     margin:0px auto;
+    margin-top: 20px;
+    color: black;
   }
 
-a {
+a, .pregame_link {
     font-size: 1.75em;
+    color: darkblue;
 }
 
 .home-header {
@@ -161,6 +172,7 @@ a {
     border: black solid 1px;
     padding: 10px;
     margin: auto;
+    margin-top: 20px;
 }
 
 #comment_field {
@@ -175,8 +187,19 @@ a {
 }
 
 .add_form {
-    background-color: white;
+    background-color: lightgray;
     padding: 20px;
+    font-size: 2em;
+    border: black solid 5px;
+}
+
+input {
+    width: 40ch;
+}
+
+.createButton {
+    background-color: green;
+    color: white;
 }
 
 #search-form {
