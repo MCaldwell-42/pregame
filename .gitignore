@@ -34,7 +34,7 @@ migrations
 
 #db location
 pregameApp/views/connection.py
-pregameApp/views/maps.py
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
