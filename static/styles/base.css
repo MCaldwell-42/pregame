@@ -1,0 +1,220 @@
+.main-content {
+  padding: 1em 2em;
+}
+
+.navList {
+    list-style-type: none;
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 1em;
+}
+
+.navLinks {
+    color: lightseagreen;
+}
+
+.navList__route {
+    margin: 0 0.5em;
+}
+
+#map {
+    height: 400px;
+    width: 60%;
+    margin:0px auto;
+    border: black solid 2px;
+  }
+
+.hide {
+    display: none;
+  }
+
+input {
+    width: 250px;
+}
+
+body {
+    background: url('pregameBackground.jpeg')no-repeat center center fixed;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    font-size: 1.25em;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 1024px;
+    min-width: 1024px;
+    width: 100%;
+    height: 100%;
+  }
+
+#site-nav {
+    background-color: black;
+    border: black;
+    font-size: 1.5em;
+}
+
+#rsvp_button {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 400px;
+}
+
+.notecard {
+    background-color: lightblue;
+    width: 400px;
+    border: black solid 5px;
+    padding: 2px;
+    margin: auto;
+    margin-top: 10px;
+}
+.event_cards {
+    background-color: lightblue;
+    width: 50%;
+    border: black solid 5px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#event_header {
+    margin: auto;
+    background-color: lightblue;
+    width: 400px;
+    border: black solid 5px;
+    padding: 10px;
+    
+}
+
+#event_detail {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: lightblue;
+    /* width: 400px; */
+    border: black solid 1px;
+    padding: 10px;
+}
+
+.event_detail_page {
+    background-color: darkgrey;
+    /* width: 60%; */
+    border: black solid 2px;
+    flex: 1;
+    padding: 0 5px;
+}
+.pregame_detail_page {
+    text-align: center;
+    background-color: darkgrey;
+    width: 60%;
+    border: black solid 2px;
+    flex: 1;
+    padding: 0 5px;
+    margin: auto;
+}
+
+#detail_map {
+    flex: 2;
+    border: black solid 3px;
+  }
+
+.pregame_list_card, #pregame_list_head {
+    background-color: darkgrey;
+    width: 60%;
+    border: black solid 2px;
+    flex: 1;
+    padding: 0 5px;
+    margin:0px auto;
+    margin-top: 20px;
+    color: black;
+  }
+
+a, .pregame_link {
+    font-size: 1.75em;
+    color: darkblue;
+}
+
+.home-header {
+    display: flex;
+ justify-content: center;
+ font: 700 90px/1 "Source Sans Pro", Arial, sans-serif;
+ text-transform: uppercase;
+    text-align: center;
+    font-size: 70px;
+    color: white;
+    margin: auto;
+ text-align: center;
+ justify-content: center;
+ letter-spacing: 0px;
+ margin: 10px;
+ text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%),
+   0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+   0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%),
+   0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%),
+   0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2),
+   0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2),
+   0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.board_head {
+    background-color: lightblue;
+    width: 400px;
+    border: black solid 1px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#comment_field {
+    display: block;
+}
+
+#comment-form, #comment_btn {
+    width: 400px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.add_form {
+    background-color: lightgray;
+    padding: 20px;
+    font-size: 2em;
+    border: black solid 5px;
+}
+
+input {
+    width: 40ch;
+}
+
+.createButton {
+    background-color: green;
+    color: white;
+}
+
+#search-form {
+
+    display: flex;
+    justify-content: center;
+}
+
+#event-search {
+    padding: 8px;
+    border: 2px solid black;
+}
+
+.home-search {
+    padding: 8px;
+    border: 4px solid black;
+    width: 50%;
+}
